@@ -32,7 +32,7 @@ export function ChatPage() {
    return (
       <div className="flex flex-col h-full">
          {messages.length === 0 ? (
-            <div className="flex-1 flex flex-col items-center justify-center text-center p-4">
+            <div className="flex-1 flex flex-col items-center justify-center text-center p-4 pb-40">
                <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Welcome to GenUI Chat</h2>
                <p className="text-gray-500 dark:text-gray-400 max-w-md mb-8">
                   Ask me anything about stocks, sales, or data. I can generate charts and tables for you.

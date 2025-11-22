@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import DotGrid from '../components/react-bits/dot-grid';
 
 export function LoginPage() {
    const navigate = useNavigate()
@@ -17,14 +18,26 @@ export function LoginPage() {
    };
 
    return (
-      <div className="min-h-screen flex items-center justify-center bg-black p-4">
+      <div className="min-h-screen flex items-center justify-center bg-transparent">
+         <DotGrid
+            dotSize={5}
+            gap={15}
+            baseColor="#222222"
+            activeColor="#2a9dfa"
+            proximity={160}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
+            style={{ position: 'absolute',zIndex: -1 }}
+         />
          <div className="flex flex-col items-center w-full">
             <div className="mb-8 text-center space-y-2">
-               <h1 className="text-2xl font-bold text-white">Welcome Back</h1>
+               <h1 className="text-2xl font-bold text-foreground">Welcome Back</h1>
                <p className="text-sm text-gray-400">Enter your credentials to access the platform</p>
             </div>
 
-            <Card className="w-[420px]">
+            <Card className="w-[420px] opacity-90">
                <CardHeader>
                   <CardTitle>Login</CardTitle>
                   <CardDescription>Enter your email to access your account.</CardDescription>

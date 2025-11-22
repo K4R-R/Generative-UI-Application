@@ -1,36 +1,41 @@
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "./theme-provider"
+import { motion } from "framer-motion"
 
 export function ModeToggle() {
    const { setTheme, theme } = useTheme()
 
-   // If theme is system, resolve it to current effective theme or default to dark
    const currentTheme = theme === 'system' ? 'dark' : theme;
 
+   const toggleTheme = () => {
+      setTheme(currentTheme === 'dark' ? "light" : "dark")
+   }
+
    return (
-      <div className="flex items-center p-1 bg-gray-200 dark:bg-gray-800 rounded-full border dark:border-gray-700">
-         <button
-            onClick={() => setTheme("light")}
-            className={`
-          relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 focus:outline-none
-          ${currentTheme === 'light' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'}
-        `}
-            title="Light Mode"
-         >
-            <Sun className="h-4 w-4" />
-            <span className="sr-only">Light</span>
-         </button>
-         <button
-            onClick={() => setTheme("dark")}
-            className={`
-          relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 focus:outline-none
-          ${currentTheme === 'dark' ? 'bg-gray-700 text-white shadow-sm' : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-300'}
-        `}
-            title="Dark Mode"
-         >
-            <Moon className="h-4 w-4" />
-            <span className="sr-only">Dark</span>
-         </button>
-      </div>
+      <button
+         onClick={toggleTheme}
+         className="relative inline-flex h-9 w-[4.5rem] items-center rounded-full bg-muted p-1 transition-colors hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+         aria-label="Toggle theme"
+      >
+         <div className="absolute inset-0 z-10 flex w-full items-center">
+            <div className="flex w-1/2 justify-center">
+               <Sun className={`h-5 w-5 transition-colors duration-300 ${currentTheme === 'light' ? 'text-yellow-500' : 'text-muted-foreground'}`} />
+            </div>
+            <div className="flex w-1/2 justify-center">
+               <Moon className={`h-5 w-5 transition-colors duration-300 ${currentTheme === 'dark' ? 'text-blue-400' : 'text-muted-foreground'}`} />
+            </div>
+         </div>
+         <motion.div
+            className="absolute left-1 top-1 h-7 w-7 rounded-full bg-background shadow-sm"
+            initial={false}
+            animate={{
+               x: currentTheme === 'dark' ? 36 : 0
+            }}
+            transition={{
+               duration: 0.3,
+               ease: "easeInOut"
+            }}
+         />
+      </button>
    )
 }

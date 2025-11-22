@@ -5,6 +5,7 @@ import { Layout } from './components/layout/layout'
 import { LoginPage } from './pages/login'
 import { SignupPage } from './pages/signup'
 import { ChatPage } from './pages/chat'
+import { Testing } from './pages/testing'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
@@ -21,6 +22,7 @@ function App() {
             <Routes>
                <Route path="/login" element={<LoginPage />} />
                <Route path="/signup" element={<SignupPage />} />
+               <Route path="/testing" element={<Testing /> } />
                <Route path="/" element={
                   <ProtectedRoute>
                      <Layout />

@@ -18,10 +18,10 @@ export function SignupPage() {
    };
 
    return (
-      <div className="min-h-screen flex items-center justify-center bg-black p-4">
+      <div className="min-h-screen flex items-center justify-center bg-background p-4">
          <div className="flex flex-col items-center w-full">
             <div className="mb-8 text-center space-y-2">
-               <h1 className="text-2xl font-bold text-white">Create an account</h1>
+               <h1 className="text-2xl font-bold text-foreground">Create an account</h1>
                <p className="text-sm text-gray-400">Enter your information to get started</p>
             </div>
 

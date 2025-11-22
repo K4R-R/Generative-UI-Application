@@ -1,4 +1,4 @@
-import { MessageSquare, Settings, LogOut, User, HelpCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MessageSquare, Settings, LogOut, User, HelpCircle, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
 import { Button } from '../ui/button';
 import {
    DropdownMenu,
@@ -29,32 +29,32 @@ export function Sidebar() {
 
    return (
       <aside className={`${isCollapsed ? 'w-16' : 'w-64'} bg-card border-r border-border flex flex-col hidden md:flex transition-all duration-300`}>
-         <div className="p-4 border-b border-border flex items-center justify-between">
-            {!isCollapsed && <span className="font-bold text-lg">GenUI Chat</span>}
+         <div className="border-b border-border flex items-center justify-between">
+            {!isCollapsed && <span className="font-bold text-xl pl-2">GenUI Chat</span>}
             <Button
                variant="ghost"
                size="icon"
                onClick={() => setIsCollapsed(!isCollapsed)}
-               className="ml-auto"
+               className="ml-auto h-16 w-16"
             >
-               {isCollapsed ? <ChevronRight className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
+               {isCollapsed ? <ChevronRight className="min-h-8 min-w-8" /> : <ChevronLeft className="min-h-8 min-w-8" />}
             </Button>
          </div>
-         <div className="flex-1 overflow-y-auto p-2 space-y-2">
+         <div className="flex-1 overflow-y-auto overflow-x-hidden space-y-2">
             <Button
                variant="secondary"
-               className={`w-full ${isCollapsed ? 'justify-center px-2' : 'justify-start'}`}
+               className={`w-full p-6 text-md rounded-none ${isCollapsed ? 'justify-center px-2' : 'justify-start'}`}
             >
-               <MessageSquare className={`h-4 w-4 ${isCollapsed ? '' : 'mr-2'}`} />
+               <Plus className={`h-4 w-4 ${isCollapsed ? '' : 'mr-2'}`} />
                {!isCollapsed && 'New Chat'}
             </Button>
 
             {!isCollapsed && (
                <>
                   <div className="pt-4 pb-2">
-                     <p className="text-xs font-semibold text-muted-foreground px-2">Recent</p>
+                     <p className="text-sm font-semibold text-muted-foreground px-2">Recent</p>
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1 p-1">
                      {['Previous conversation 1', 'Previous conversation 2', 'Previous conversation 3', 'Previous conversation 4', 'Previous conversation 5'].map((conv, idx) => (
                         <Button
                            key={idx}
@@ -71,35 +71,35 @@ export function Sidebar() {
          </div>
 
          {/* User Profile Section */}
-         <div className="p-4 border-t border-border">
+         <div className=" border-t border-border">
             {!isCollapsed ? (
-               <div className="mb-3">
+               <div className="my-3">
                   <div className="flex items-center gap-3">
-                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white font-semibold">
+                     <div className="w-10 h-10 ml-2 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white font-semibold">
                         {initials}
                      </div>
                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium truncate">{displayName}</p>
+                        <p className="text-lg font-medium truncate">{displayName}</p>
                         <p className="text-xs text-muted-foreground truncate">{userEmail}</p>
                      </div>
                   </div>
                </div>
             ) : (
-               <div className="mb-3 flex justify-center">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white font-semibold">
+               <div className="my-3 flex justify-center">
+                  <div className="min-w-10 h-10 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white font-semibold">
                      {initials}
                   </div>
                </div>
             )}
 
             <DropdownMenu>
-               <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className={`w-full ${isCollapsed ? 'justify-center px-2' : 'justify-start'}`}>
-                     <Settings className={`h-4 w-4 ${isCollapsed ? '' : 'mr-2'}`} />
+               <DropdownMenuTrigger asChild className="py-6">
+                  <Button variant="ghost" className={`w-full text-lg ${isCollapsed ? 'justify-center' : 'justify-start'}`}>
+                     <Settings className={`min-h-6 min-w-6 ${isCollapsed ? '' : 'mr-2'}`} />
                      {!isCollapsed && 'Settings'}
                   </Button>
                </DropdownMenuTrigger>
-               <DropdownMenuContent className="w-56" align="end" side="top">
+               <DropdownMenuContent className="w-64" align="center" side="top">
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
