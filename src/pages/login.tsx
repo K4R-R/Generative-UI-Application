@@ -18,7 +18,7 @@ export function LoginPage() {
    };
 
    return (
-      <div className="min-h-screen flex items-center justify-center bg-transparent">
+      <div className="min-h-screen flex items-center justify-center bg-transparent p-8">
          <DotGrid
             dotSize={5}
             gap={15}
@@ -37,7 +37,7 @@ export function LoginPage() {
                <p className="text-sm text-gray-400">Enter your credentials to access the platform</p>
             </div>
 
-            <Card className="w-[420px] opacity-90">
+            <Card className="max-w-[420px] w-full opacity-90">
                <CardHeader>
                   <CardTitle>Login</CardTitle>
                   <CardDescription>Enter your email to access your account.</CardDescription>

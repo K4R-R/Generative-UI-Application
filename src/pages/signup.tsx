@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import DotGrid from '../components/react-bits/dot-grid';
 
 export function SignupPage() {
    const navigate = useNavigate();
@@ -18,14 +19,26 @@ export function SignupPage() {
    };
 
    return (
-      <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="min-h-screen flex items-center justify-center bg-transparent p-8">
+         <DotGrid
+                     dotSize={5}
+                     gap={15}
+                     baseColor="#222222"
+                     activeColor="#2a9dfa"
+                     proximity={160}
+                     shockRadius={250}
+                     shockStrength={5}
+                     resistance={750}
+                     returnDuration={1.5}
+                     style={{ position: 'absolute',zIndex: -1 }}
+                  />
          <div className="flex flex-col items-center w-full">
             <div className="mb-8 text-center space-y-2">
                <h1 className="text-2xl font-bold text-foreground">Create an account</h1>
                <p className="text-sm text-gray-400">Enter your information to get started</p>
             </div>
 
-            <Card className="w-[420px]">
+            <Card className="max-w-[420px] w-full opacity-90">
                <CardHeader>
                   <CardTitle>Sign Up</CardTitle>
                   <CardDescription>Create your account to continue.</CardDescription>
