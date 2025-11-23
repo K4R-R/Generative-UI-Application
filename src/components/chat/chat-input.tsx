@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Paperclip, ChevronDown, Sparkles, Zap, Send, ArrowUp } from 'lucide-react';
+import { Paperclip, ChevronDown, Sparkles, Zap, ArrowUp } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 import {

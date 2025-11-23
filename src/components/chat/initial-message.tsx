@@ -1,7 +1,7 @@
 import { useChat } from '../../context/chat-context';
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
-import { ArrowUpRight, Image as ImageIcon, Layout, Map, Scale, TrendingUp } from 'lucide-react';
+import { ArrowUpRight, Layout, Map, Scale, TrendingUp } from 'lucide-react';
 
 export function InitialMessage() {
    const { sendMessage } = useChat();
