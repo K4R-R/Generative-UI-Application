@@ -60,7 +60,7 @@ export function InitialMessage() {
    ];
 
    return (
-      <div className="flex-1 flex flex-col items-center justify-center p-4 pb-40 overflow-y-auto">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 pb-40 overflow-y-hidden">
          <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(160px,auto)]">
             <div className="col-span-1 row-span-1 flex flex-col justify-center text-left p-6">
                <motion.div

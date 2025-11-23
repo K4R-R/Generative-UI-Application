@@ -55,7 +55,7 @@ export function ChatInput() {
                value={input}
                onChange={(e) => setInput(e.target.value)}
                onKeyDown={handleKeyDown}
-               placeholder="Ask Gemini"
+               placeholder="Enter your message..."
                className="min-h-[52px] w-full resize-none bg-transparent border-none focus-visible:ring-0 px-4 py-2 placeholder:text-muted-foreground/70 custom-scrollbar"
                disabled={isLoading}
                rows={1}
