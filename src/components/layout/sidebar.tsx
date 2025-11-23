@@ -10,10 +10,12 @@ import {
 } from '../ui/dropdown-menu';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useChat } from '../../context/chat-context';
 
 export function Sidebar() {
    const navigate = useNavigate();
    const [isCollapsed, setIsCollapsed] = useState(false);
+   const { clearChat } = useChat();
 
    // Get user email from localStorage and extract username
    const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
@@ -28,7 +30,7 @@ export function Sidebar() {
    };
 
    return (
-      <aside className={`${isCollapsed ? 'w-16' : 'w-64'} bg-card border-r border-border flex flex-col hidden md:flex transition-all duration-300`}>
+      <aside className={`${isCollapsed ? 'w-16' : 'w-64'} bg-card border-r border-border flex flex-col  md:flex transition-all duration-300`}>
          <div className="border-b border-border flex items-center justify-between">
             {!isCollapsed && <span className="font-bold text-xl pl-2">GenUI Chat</span>}
             <Button
@@ -44,6 +46,7 @@ export function Sidebar() {
             <Button
                variant="secondary"
                className={`w-full p-6 text-md rounded-none ${isCollapsed ? 'justify-center px-2' : 'justify-start'}`}
+               onClick={clearChat}
             >
                <Plus className={`h-4 w-4 ${isCollapsed ? '' : 'mr-2'}`} />
                {!isCollapsed && 'New Chat'}
@@ -59,7 +62,7 @@ export function Sidebar() {
                         <Button
                            key={idx}
                            variant="ghost"
-                           className="w-full justify-start text-sm font-normal h-9 px-2"
+                           className="w-full justify-start text-md font-normal h-9 px-2"
                         >
                            <MessageSquare className="h-3 w-3 mr-2 flex-shrink-0" />
                            <span className="truncate">{conv}</span>
@@ -93,7 +96,7 @@ export function Sidebar() {
             )}
 
             <DropdownMenu>
-               <DropdownMenuTrigger asChild className="py-6">
+               <DropdownMenuTrigger asChild className="py-8">
                   <Button variant="ghost" className={`w-full text-lg ${isCollapsed ? 'justify-center' : 'justify-start'}`}>
                      <Settings className={`min-h-6 min-w-6 ${isCollapsed ? '' : 'mr-2'}`} />
                      {!isCollapsed && 'Settings'}

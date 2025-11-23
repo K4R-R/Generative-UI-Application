@@ -1,13 +1,9 @@
 import { useEffect, useRef } from 'react';
-import type { Message } from '../../types';
 import { MessageBubble } from './message-bubble';
+import { useChat } from '../../context/chat-context';
 
-interface MessageListProps {
-   messages: Message[];
-   isLoading?: boolean;
-}
-
-export function MessageList({ messages, isLoading }: MessageListProps) {
+export function MessageList() {
+   const { messages, isLoading } = useChat();
    const bottomRef = useRef<HTMLDivElement>(null);
 
    useEffect(() => {
@@ -15,7 +11,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
    }, [messages, isLoading]);
 
    return (
-      <div className="flex-1 overflow-y-auto p-4 pb-40">
+      <div className="flex-1 overflow-y-auto p-4 pb-40 custom-scrollbar [scrollbar-gutter:stable_both-edges]">
          <div className="max-w-4xl mx-auto">
             {messages.map((msg) => (
                <MessageBubble key={msg.id} message={msg} />

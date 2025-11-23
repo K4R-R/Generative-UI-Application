@@ -15,7 +15,7 @@ export interface Message {
 }
 
 export interface GenerativeWidget {
-   type: 'line-chart' | 'bar-chart' | 'pie-chart' | 'table' | 'stock-card';
+   type: 'line-chart' | 'bar-chart' | 'pie-chart' | 'table' | 'stock-card' | 'code-snippet' | 'map-view';
    title?: string;
    data: any;
 }

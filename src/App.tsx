@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from './components/theme-provider'
 import { Layout } from './components/layout/layout'
+import { ChatProvider } from './context/chat-context'
 import { LoginPage } from './pages/login'
 import { SignupPage } from './pages/signup'
 import { ChatPage } from './pages/chat'
@@ -22,10 +23,12 @@ function App() {
             <Routes>
                <Route path="/login" element={<LoginPage />} />
                <Route path="/signup" element={<SignupPage />} />
-               <Route path="/testing" element={<Testing /> } />
+               <Route path="/testing" element={<Testing />} />
                <Route path="/" element={
                   <ProtectedRoute>
-                     <Layout />
+                     <ChatProvider>
+                        <Layout />
+                     </ChatProvider>
                   </ProtectedRoute>
                }>
                   <Route index element={<ChatPage />} />

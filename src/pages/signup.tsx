@@ -19,7 +19,7 @@ export function SignupPage() {
    };
 
    return (
-      <div className="min-h-screen flex items-center justify-center bg-transparent p-8">
+      <div className="min-h-screen flex items-center justify-center bg-transparent p-8 ">
          <DotGrid
                      dotSize={5}
                      gap={15}
