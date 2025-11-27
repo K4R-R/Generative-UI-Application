@@ -36,7 +36,7 @@ export function InitialMessage() {
          title: 'User Management',
          subtitle: 'Active Members',
          prompt: 'Show me the table of recent users',
-         className: 'col-span-1 row-span-1 bg-cover bg-center min-h-[160px] relative overflow-hidden group',
+         className: 'col-span-1 row-span-1 bg-cover bg-center min-h-[140px] relative overflow-hidden group',
          backgroundImage: 'url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3)', // Team/Office vibe
          overlay: true,
       },
@@ -45,7 +45,7 @@ export function InitialMessage() {
          title: 'Data Analytics',
          subtitle: 'Visual Insights',
          prompt: 'Analyze this sales data and visualize the quarterly trends',
-         className: 'col-span-2 row-span-2 bg-cover bg-center min-h-[320px] relative overflow-hidden group',
+         className: 'col-span-2 row-span-2 bg-cover bg-center min-h-[280px] relative overflow-hidden group',
          backgroundImage: 'url(https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)', // Data/Tech vibe
          overlay: true,
       },
@@ -61,8 +61,8 @@ export function InitialMessage() {
 
    return (
       <div className="flex-1 flex flex-col items-center justify-center p-4 pb-40 overflow-y-hidden">
-         <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(160px,auto)]">
-            <div className="col-span-1 row-span-1 flex flex-col justify-center text-left p-6">
+         <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(140px,auto)]">
+            <div className="col-span-1 row-span-1 flex flex-col justify-center text-left">
                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}

@@ -4,8 +4,10 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import DotGrid from '../components/react-bits/dot-grid';
+import { useTheme } from '../context/theme-provider';
 
 export function SignupPage() {
+   const { theme } = useTheme()
    const navigate = useNavigate();
    const [name, setName] = useState('');
    const [email, setEmail] = useState('');
@@ -21,20 +23,20 @@ export function SignupPage() {
    return (
       <div className="min-h-screen flex items-center justify-center bg-transparent p-8 ">
          <DotGrid
-                     dotSize={5}
-                     gap={15}
-                     baseColor="#222222"
-                     activeColor="#2a9dfa"
-                     proximity={160}
-                     shockRadius={250}
-                     shockStrength={5}
-                     resistance={750}
-                     returnDuration={1.5}
-                     style={{ position: 'absolute',zIndex: -1 }}
-                  />
+            dotSize={5}
+            gap={15}
+            baseColor={theme === 'dark' ? '#111111' : '#eeeeee'}
+            activeColor={theme === 'dark' ? '#2a9dfa' : '#03befc'}
+            proximity={160}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
+            style={{ position: 'absolute', zIndex: -1 }}
+         />
          <div className="flex flex-col items-center w-full">
             <div className="mb-8 text-center space-y-2">
-               <h1 className="text-2xl font-bold text-foreground">Create an account</h1>
+               <h1 className="text-2xl font-semibold text-foreground">Create an account</h1>
                <p className="text-sm text-gray-400">Enter your information to get started</p>
             </div>
 

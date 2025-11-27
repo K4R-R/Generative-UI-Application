@@ -11,7 +11,7 @@ import {
 import { useChat } from '../../context/chat-context';
 import type { VisualizationType } from '../../types';
 
-export function ChatInput() {
+export function ChatInputTemp() {
    const { sendMessage, isLoading } = useChat();
    const [input, setInput] = useState('');
    const [selectedMode, setSelectedMode] = useState<VisualizationType>('auto');
@@ -70,7 +70,7 @@ export function ChatInput() {
    };
 
    return (
-      <div className="absolute bottom-0 w-full max-w-4xl left-1/2 -translate-x-1/2 z-50">
+      <div className="absolute bottom-80 w-full max-w-4xl left-1/2 -translate-x-1/2 z-50">
          <div className="bg-secondary/90 backdrop-blur-sm border border-border/50 rounded-[30px] shadow-lg flex flex-col transition-all duration-200 focus-within:ring-2 focus-within:ring-ring/50 pr-2 pt-3">
             <Textarea
                ref={textareaRef}

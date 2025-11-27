@@ -85,7 +85,13 @@ const DotGrid: React.FC<DotGridProps> = ({
     if (typeof window === 'undefined' || !window.Path2D) return null;
 
     const p = new Path2D();
-    p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
+    // p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
+    const radius = dotSize / 1.8;
+    p.moveTo(0, -radius);      // Top point
+    p.lineTo(radius, 0);       // Right point
+    p.lineTo(0, radius);       // Bottom point
+    p.lineTo(-radius, 0);      // Left point
+    p.closePath();
     return p;
   }, [dotSize]);
 

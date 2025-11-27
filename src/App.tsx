@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { ThemeProvider } from './components/theme-provider'
+import { ThemeProvider } from './context/theme-provider'
 import { Layout } from './components/layout/layout'
 import { ChatProvider } from './context/chat-context'
 import { LoginPage } from './pages/login'
